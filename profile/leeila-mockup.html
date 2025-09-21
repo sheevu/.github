@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Leeila – Sudarshan AI Labs Assistant UI Mockup</title>
+    <link
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
+    />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Poppins:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --blue: #3d5afe;
+        --coral: #ff5252;
+        --teal: #00bfa6;
+        --charcoal: #121212;
+        --card-bg: rgba(18, 18, 18, 0.8);
+        --card-border: rgba(255, 255, 255, 0.08);
+        --text: #f5f7ff;
+        --muted: rgba(245, 247, 255, 0.75);
+        --shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+        --radius-xl: 28px;
+        --radius-lg: 20px;
+        --radius-md: 16px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        color: var(--text);
+        background: radial-gradient(circle at top left, rgba(61, 90, 254, 0.4), transparent 40%),
+          radial-gradient(circle at top right, rgba(0, 191, 166, 0.35), transparent 45%),
+          radial-gradient(circle at bottom, rgba(255, 82, 82, 0.35), transparent 45%),
+          var(--charcoal);
+        background-attachment: fixed;
+        padding: 56px 20px 80px;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        gap: 40px;
+      }
+
+      header {
+        display: grid;
+        gap: 24px;
+        border-radius: var(--radius-xl);
+        padding: 48px;
+        background: linear-gradient(135deg, rgba(61, 90, 254, 0.15), rgba(0, 191, 166, 0.05));
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(20px);
+        box-shadow: var(--shadow);
+      }
+
+      header span.badge {
+        align-self: flex-start;
+        padding: 12px 20px;
+        border-radius: 999px;
+        font-weight: 600;
+        background: rgba(0, 191, 166, 0.18);
+        color: var(--teal);
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        font-size: 0.78rem;
+      }
+
+      header h1 {
+        font-family: 'Poppins', sans-serif;
+        font-size: clamp(2.5rem, 4vw, 3.4rem);
+        margin: 0;
+        line-height: 1.1;
+      }
+
+      header p {
+        margin: 0;
+        font-size: 1.12rem;
+        max-width: 640px;
+        color: var(--muted);
+      }
+
+      .cta-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+      }
+
+      .cta {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 16px 28px;
+        border-radius: var(--radius-lg);
+        font-weight: 600;
+        font-size: 1rem;
+        text-decoration: none;
+        box-shadow: var(--shadow);
+        transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+      }
+
+      .cta.primary {
+        color: #fff;
+        background: linear-gradient(135deg, var(--blue), var(--teal));
+      }
+
+      .cta.secondary {
+        color: var(--text);
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+      }
+
+      .cta:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 24px 50px rgba(61, 90, 254, 0.35);
+      }
+
+      section {
+        border-radius: var(--radius-xl);
+        padding: 40px 44px;
+        background: linear-gradient(160deg, rgba(18, 18, 18, 0.85), rgba(18, 18, 18, 0.7));
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        backdrop-filter: blur(16px);
+        box-shadow: var(--shadow);
+      }
+
+      section h2 {
+        margin: 0 0 24px;
+        font-family: 'Poppins', sans-serif;
+        font-size: 2rem;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 24px;
+      }
+
+      .card {
+        border-radius: var(--radius-lg);
+        padding: 28px;
+        background: var(--card-bg);
+        border: 1px solid var(--card-border);
+        position: relative;
+        overflow: hidden;
+        display: grid;
+        gap: 16px;
+        transition: transform 0.3s ease, border-color 0.3s ease;
+      }
+
+      .card::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(circle at top right, rgba(61, 90, 254, 0.22), transparent 55%);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .card:hover {
+        transform: translateY(-6px);
+        border-color: rgba(255, 255, 255, 0.2);
+      }
+
+      .card:hover::before {
+        opacity: 1;
+      }
+
+      .card span.tier {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 600;
+        color: var(--blue);
+        background: rgba(61, 90, 254, 0.14);
+        padding: 8px 14px;
+        border-radius: 999px;
+        font-size: 0.85rem;
+      }
+
+      .card strong.price {
+        font-size: 1.8rem;
+        font-family: 'Poppins', sans-serif;
+      }
+
+      .card p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.6;
+      }
+
+      .chat-preview {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 28px;
+        align-items: stretch;
+      }
+
+      .chat-preview article {
+        border-radius: var(--radius-xl);
+        padding: 32px;
+        background: linear-gradient(150deg, rgba(61, 90, 254, 0.2), rgba(0, 191, 166, 0.12));
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: var(--shadow);
+        display: grid;
+        gap: 18px;
+      }
+
+      .chat-widget {
+        border-radius: var(--radius-lg);
+        padding: 24px;
+        background: rgba(12, 12, 14, 0.9);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        display: grid;
+        gap: 16px;
+      }
+
+      .bubble {
+        padding: 16px;
+        border-radius: 20px;
+        line-height: 1.55;
+        font-size: 0.95rem;
+        max-width: 420px;
+        position: relative;
+      }
+
+      .bubble.ai {
+        background: rgba(61, 90, 254, 0.18);
+        border: 1px solid rgba(61, 90, 254, 0.3);
+        color: #dce2ff;
+      }
+
+      .bubble.user {
+        justify-self: end;
+        background: rgba(255, 82, 82, 0.18);
+        border: 1px solid rgba(255, 82, 82, 0.28);
+        color: #ffeaea;
+      }
+
+      .chip-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .chip {
+        padding: 10px 16px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        font-size: 0.85rem;
+        color: var(--muted);
+      }
+
+      .footer-cta {
+        display: grid;
+        gap: 20px;
+        text-align: center;
+        padding: 48px;
+        border-radius: var(--radius-xl);
+        background: linear-gradient(140deg, rgba(0, 191, 166, 0.2), rgba(61, 90, 254, 0.15));
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: var(--shadow);
+      }
+
+      .footer-cta h3 {
+        margin: 0;
+        font-family: 'Poppins', sans-serif;
+        font-size: 2.1rem;
+      }
+
+      .footer-cta p {
+        margin: 0 auto;
+        max-width: 580px;
+        color: var(--muted);
+      }
+
+      @media (max-width: 960px) {
+        body {
+          padding: 36px 16px 60px;
+        }
+
+        header,
+        section,
+        .footer-cta {
+          padding: 32px 28px;
+        }
+
+        .chat-preview {
+          grid-template-columns: 1fr;
+        }
+
+        .bubble {
+          max-width: 100%;
+        }
+      }
+
+      @media (max-width: 600px) {
+        header h1 {
+          font-size: 2.2rem;
+        }
+
+        .cta-row {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="container">
+      <header>
+        <span class="badge">Sudarshan AI Labs</span>
+        <h1>Namaste, I’m Leeila — your AI growth partner ⚡</h1>
+        <p>
+          Explore digital transformation services, compare pricing, and chat live with our AI assistant crafted for Indian MSMEs,
+          startups, and innovators.
+        </p>
+        <div class="cta-row">
+          <a class="cta primary" href="#services">💼 Explore Services</a>
+          <a class="cta secondary" href="#chat">🤝 Meet Leeila</a>
+        </div>
+      </header>
+
+      <section id="services">
+        <h2>Signature AI & SaaS Packages</h2>
+        <div class="grid">
+          <article class="card">
+            <span class="tier">🌱 Tech Swaraj Pack</span>
+            <strong class="price">₹89</strong>
+            <p>Launch your Kirana digital store with MSME/Udyam certificate, SEO, WhatsApp, and Google integration in 24 hours.</p>
+          </article>
+          <article class="card">
+            <span class="tier">🚀 Kick-Start Pack</span>
+            <strong class="price">₹499</strong>
+            <p>Go-to-market fast with landing page, SEO, WhatsApp setup, three social posts, and a 30-minute expert audit call.</p>
+          </article>
+          <article class="card">
+            <span class="tier">🏪 Vyapari Udaan Pack</span>
+            <strong class="price">₹889</strong>
+            <p>Unlock a catalog-ready online store with SEO, product uploads, eight premium posts, and guided lead capture.</p>
+          </article>
+          <article class="card">
+            <span class="tier">📈 Growth Pro Pack</span>
+            <strong class="price">₹1599</strong>
+            <p>Secure a pro website, ten SEO blogs, chatbot, analytics, and an action-oriented digital growth audit.</p>
+          </article>
+          <article class="card">
+            <span class="tier">📱 Social Booster Pack</span>
+            <strong class="price">₹999/mo</strong>
+            <p>Run vibrant social media with twelve posts, thirty stories, four reels, promos, blogs, and weekly performance reports.</p>
+          </article>
+          <article class="card">
+            <span class="tier">💎 Digital Dominator Pack</span>
+            <strong class="price">₹1399/mo</strong>
+            <p>Accelerate brand presence with twenty posts (ten animated), reels, ad support, influencer shoutouts, and refreshes.</p>
+          </article>
+          <article class="card">
+            <span class="tier">⚡ Tez Raftar Booster</span>
+            <strong class="price">₹1899/mo</strong>
+            <p>Automate growth via pro website, advanced SEO, WhatsApp Bot Pro, broadcast setup, analytics, and a cinematic brand video.</p>
+          </article>
+        </div>
+      </section>
+
+      <section>
+        <h2>Popular Add-on Services</h2>
+        <div class="grid">
+          <article class="card">
+            <span class="tier">🔗 Bio Link + GMB</span>
+            <strong class="price">₹129</strong>
+            <p>Publish a digital card and verified Google merchant listing to boost immediate discoverability.</p>
+          </article>
+          <article class="card">
+            <span class="tier">🖥️ 5 Page Website</span>
+            <strong class="price">₹3500</strong>
+            <p>Launch a custom, mobile-friendly website built for speed, trust, and conversion.</p>
+          </article>
+          <article class="card">
+            <span class="tier">📣 Landing Page</span>
+            <strong class="price">₹1500</strong>
+            <p>Drive campaign results with WhatsApp-enabled lead-gen pages and conversion-focused copy.</p>
+          </article>
+          <article class="card">
+            <span class="tier">🤖 WhatsApp Bot</span>
+            <strong class="price">₹129 / ₹599</strong>
+            <p>Automate customer chats and orders with bilingual flows tailored to your business.</p>
+          </article>
+          <article class="card">
+            <span class="tier">🧠 Research & Content</span>
+            <strong class="price">₹499</strong>
+            <p>Publish authoritative articles with DA 80+ backlink opportunities that boost organic reach.</p>
+          </article>
+          <article class="card">
+            <span class="tier">📈 Sheets Automation</span>
+            <strong class="price">₹1999</strong>
+            <p>Visualise growth with tailored dashboards, KPI trackers, and executive-ready reports.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="chat" class="chat-preview">
+        <article>
+          <h2>Leeila in Conversation</h2>
+          <p>
+            A dark-mode assistant widget with glowing accents keeps the interaction trendy and vibrant while staying professional.
+          </p>
+          <div class="chip-row">
+            <span class="chip">💬 Hindi + English Support</span>
+            <span class="chip">📊 Pricing Shortcuts</span>
+            <span class="chip">🧭 Guided Flows</span>
+            <span class="chip">🔗 CRM + Sheets</span>
+          </div>
+        </article>
+        <div class="chat-widget">
+          <div class="bubble ai">
+            Namaste! 👋 I’m Leeila from Sudarshan AI Labs. Looking for 💼 services, 📊 pricing, 📞 a call-back, or ❓ AI guidance today?
+          </div>
+          <div class="bubble user">Namaste, I need help automating my WhatsApp sales.</div>
+          <div class="bubble ai">
+            Perfect! I can suggest our WhatsApp Bot Pro and Tez Raftar Booster combo for seamless automation. Would you like a demo
+            or pricing breakdown?
+          </div>
+        </div>
+      </section>
+
+      <section class="footer-cta">
+        <h3>Ready to launch your AI journey with Leeila?</h3>
+        <p>
+          Let us personalise the assistant, capture leads, and connect to your Google Sheets or CRM so every conversation turns
+          into a growth opportunity.
+        </p>
+        <div class="cta-row" style="justify-content: center">
+          <a class="cta primary" href="mailto:hello@sudarshanlabs.com">📩 Book a Strategy Call</a>
+          <a class="cta secondary" href="https://sudarshanailabs.com" target="_blank" rel="noreferrer">🌐 Visit Website</a>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
