@@ -1,0 +1,29 @@
+{
+  "name": "sudarshan-ai-labs-assistant",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "npm run lint && npm run agent:test",
+    "lint": "eslint --ext .ts agents tools scripts",
+    "agent:test": "tsx scripts/test-agent.ts"
+  },
+  "dependencies": {
+    "@openai/agents": "^0.1.3",
+    "openai": "^5.22.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.12.0",
+    "@types/node": "^20.12.7",
+    "@typescript-eslint/eslint-plugin": "^8.9.0",
+    "@typescript-eslint/parser": "^8.9.0",
+    "eslint": "^9.12.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-import-resolver-typescript": "^3.6.1",
+    "eslint-plugin-import": "^2.29.1",
+    "tsx": "^4.19.1",
+    "typescript": "^5.6.3",
+    "typescript-eslint": "^8.9.0"
+  }
+}
