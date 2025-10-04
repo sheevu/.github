@@ -77,7 +77,7 @@ async function forwardToWebhook(payload: Record<string, unknown>): Promise<SaveL
       message: `Failed to forward lead: ${response.status} ${response.statusText}${
         body ? ` - ${body}` : ''
       }`,
-      forwarded: true,
+      forwarded: false,
       timestamp: new Date().toISOString(),
     };
   }
