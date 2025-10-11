@@ -167,6 +167,7 @@ const NeonPackagesWidget = () => {
                   <button
                     type="button"
                     className="neon-select"
+                    aria-pressed={isActive}
                     onClick={() => handleSelectPlan(plan.name)}
                   >
                     {isActive ? "Selected" : `Choose ${plan.name}`}
@@ -200,10 +201,16 @@ const NeonPackagesWidget = () => {
                 value={activePlan}
                 readOnly
                 placeholder="Select a package"
+                aria-invalid={formTouched && Boolean(formErrors.plan)}
+                aria-describedby={
+                  formTouched && formErrors.plan ? "plan-error" : undefined
+                }
                 className={`form-input${formTouched && formErrors.plan ? " has-error" : ""}`}
               />
               {formTouched && formErrors.plan && (
-                <p className="error-text">{formErrors.plan}</p>
+                <p id="plan-error" className="error-text">
+                  {formErrors.plan}
+                </p>
               )}
             </div>
 
@@ -218,13 +225,19 @@ const NeonPackagesWidget = () => {
                 autoComplete="name"
                 value={formValues.name}
                 onChange={handleInputChange}
+                aria-invalid={formTouched && Boolean(formErrors.name)}
+                aria-describedby={
+                  formTouched && formErrors.name ? "name-error" : undefined
+                }
                 className={`form-input${
                   formTouched && formErrors.name ? " has-error" : ""
                 }`}
                 placeholder="Your full name"
               />
               {formTouched && formErrors.name && (
-                <p className="error-text">{formErrors.name}</p>
+                <p id="name-error" className="error-text">
+                  {formErrors.name}
+                </p>
               )}
             </div>
 
@@ -239,13 +252,19 @@ const NeonPackagesWidget = () => {
                 autoComplete="email"
                 value={formValues.email}
                 onChange={handleInputChange}
+                aria-invalid={formTouched && Boolean(formErrors.email)}
+                aria-describedby={
+                  formTouched && formErrors.email ? "email-error" : undefined
+                }
                 className={`form-input${
                   formTouched && formErrors.email ? " has-error" : ""
                 }`}
                 placeholder="you@company.com"
               />
               {formTouched && formErrors.email && (
-                <p className="error-text">{formErrors.email}</p>
+                <p id="email-error" className="error-text">
+                  {formErrors.email}
+                </p>
               )}
             </div>
 
@@ -260,13 +279,19 @@ const NeonPackagesWidget = () => {
                 autoComplete="organization"
                 value={formValues.company}
                 onChange={handleInputChange}
+                aria-invalid={formTouched && Boolean(formErrors.company)}
+                aria-describedby={
+                  formTouched && formErrors.company ? "company-error" : undefined
+                }
                 className={`form-input${
                   formTouched && formErrors.company ? " has-error" : ""
                 }`}
                 placeholder="Organisation name"
               />
               {formTouched && formErrors.company && (
-                <p className="error-text">{formErrors.company}</p>
+                <p id="company-error" className="error-text">
+                  {formErrors.company}
+                </p>
               )}
             </div>
 
