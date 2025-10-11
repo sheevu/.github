@@ -90,7 +90,7 @@ export function faqResponder(question?: string): string {
       '',
       ...FAQ_LIST.map((faq, index) => `${index + 1}. **${faq.question}**\n   ${faq.answer}`),
       '',
-      '_Need something else? I can consult our Sudarshan AI Labs knowledge base via the retrieval tool._',
+      '_Need something else? I can consult our Sudarshan AI Labs knowledge base via the MCP tools._',
     ].join('\n');
   }
 
@@ -108,7 +108,7 @@ export function faqResponder(question?: string): string {
 
   return [
     "I don't have that answer in the curated FAQ list.",
-    'Let me pull the latest details from our uploaded Sudarshan AI Labs documents using the retrieval tool.',
+    'Let me pull the latest details from our uploaded Sudarshan AI Labs documents using the knowledge-base tools.',
   ].join('\n');
 }
 
