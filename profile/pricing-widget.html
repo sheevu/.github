@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sudarshan AI Labs Packages</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/pricing-widget.css" />
+</head>
+<body>
+  <main class="pricing-wrapper" role="list" aria-label="Service packages">
+    <article class="pricing-card" data-tier="starter" role="listitem" tabindex="0" aria-labelledby="starter-title" aria-pressed="false">
+      <div class="card-header">
+        <span class="tier-pill">Most Popular</span>
+        <h2 class="tier-name" id="starter-title">Starter</h2>
+        <p class="tagline">Launch a memorable first impression.</p>
+      </div>
+      <div class="card-body">
+        <p class="price"><span class="currency">₹</span>1,500<span class="price-frequency">/mo</span></p>
+        <ul class="features" aria-label="Starter plan inclusions">
+          <li>10 promotion posters</li>
+          <li>20 post templates</li>
+          <li>1 blog/article</li>
+          <li>1 press release</li>
+          <li>Monthly content calendar</li>
+          <li>4 reels/stories</li>
+        </ul>
+      </div>
+      <footer class="card-footer">
+        <button class="cta-button" data-action="enquire" aria-expanded="false" aria-controls="enquiry-panel">
+          Choose Starter
+        </button>
+      </footer>
+    </article>
+
+    <article class="pricing-card" data-tier="pro" role="listitem" tabindex="0" aria-labelledby="pro-title" aria-pressed="false">
+      <div class="card-header">
+        <span class="tier-pill">Growing teams</span>
+        <h2 class="tier-name" id="pro-title">Pro</h2>
+        <p class="tagline">Tell richer stories with consistent delivery.</p>
+      </div>
+      <div class="card-body">
+        <p class="price"><span class="currency">₹</span>3,000<span class="price-frequency">/mo</span></p>
+        <ul class="features" aria-label="Pro plan inclusions">
+          <li>15 promotion posters</li>
+          <li>25 post templates</li>
+          <li>2 blogs/articles</li>
+          <li>1 press release</li>
+          <li>PR content calendar</li>
+          <li>8 reels/stories</li>
+          <li>Social profile audit</li>
+          <li>CTA strategy</li>
+        </ul>
+      </div>
+      <footer class="card-footer">
+        <button class="cta-button" data-action="enquire" aria-expanded="false" aria-controls="enquiry-panel">
+          Choose Pro
+        </button>
+      </footer>
+    </article>
+
+    <article class="pricing-card" data-tier="enterprise" role="listitem" tabindex="0" aria-labelledby="enterprise-title" aria-pressed="false">
+      <div class="card-header">
+        <span class="tier-pill">Full-scale</span>
+        <h2 class="tier-name" id="enterprise-title">Enterprise</h2>
+        <p class="tagline">Accelerate growth with a dedicated squad.</p>
+      </div>
+      <div class="card-body">
+        <p class="price"><span class="currency">₹</span>4,500<span class="price-frequency">/mo</span></p>
+        <ul class="features" aria-label="Enterprise plan inclusions">
+          <li>30 promotion posters</li>
+          <li>30 post templates</li>
+          <li>10 blogs/articles</li>
+          <li>Full content strategy</li>
+          <li>12 reels/stories</li>
+          <li>Brand kit</li>
+          <li>Advanced CTA optimisation</li>
+        </ul>
+      </div>
+      <footer class="card-footer">
+        <button class="cta-button" data-action="enquire" aria-expanded="false" aria-controls="enquiry-panel">
+          Choose Enterprise
+        </button>
+      </footer>
+    </article>
+  </main>
+
+  <div class="panel-backdrop" data-panel-backdrop hidden aria-hidden="true"></div>
+
+  <aside class="enquiry-panel" id="enquiry-panel" data-enquiry-panel hidden aria-hidden="true" aria-live="polite">
+    <button class="close-btn" type="button" aria-label="Close enquiry form" data-close-panel>×</button>
+    <h2 class="panel-title">Let's personalise your plan</h2>
+    <p class="panel-subtitle" data-selected-plan>Please choose a package to begin.</p>
+    <form id="enquiry-form" novalidate>
+      <label class="input-label" for="plan">Selected package</label>
+      <select id="plan" name="plan" required>
+        <option value="" disabled selected>Select a package</option>
+        <option value="Starter">Starter</option>
+        <option value="Pro">Pro</option>
+        <option value="Enterprise">Enterprise</option>
+      </select>
+
+      <label class="input-label" for="name">Full name</label>
+      <input type="text" id="name" name="name" placeholder="Your name" required data-autofocus />
+
+      <label class="input-label" for="email">Work email</label>
+      <input type="email" id="email" name="email" placeholder="you@example.com" required inputmode="email" />
+
+      <label class="input-label" for="phone">Phone number</label>
+      <input type="tel" id="phone" name="phone" placeholder="Contact number" inputmode="tel" />
+
+      <label class="input-label" for="goals">Campaign goals</label>
+      <textarea id="goals" name="goals" rows="3" placeholder="Tell us what success looks like"></textarea>
+
+      <div class="form-footer">
+        <button type="submit" class="submit-btn">Submit interest</button>
+        <p class="success-message" data-success-message hidden role="status">Thank you! Our team will reach out within one business day.</p>
+      </div>
+    </form>
+  </aside>
+
+  <script type="module" src="assets/pricing-widget.js"></script>
+</body>
+</html>
